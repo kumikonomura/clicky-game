@@ -34,20 +34,23 @@ import React from 'react'
 // export default Characters
 
 class Characters extends React.Component {
+  handleImageClick (index) {
+    this.props.clickHandler(index)
+  }
   render () {
     const { imgArr } = this.props
     return (
-      <div className='ui three column grid'>
-        <div className='column'>
-          <div className='ui fluid card'>
-            <div className='image'>
-              {imgArr.map(image => {
-                return <img alt='card' src={image} />
-              })}
-            </div>
-          </div>
-        </div>
+
+      <div className='ui grid container'>
+
+        {imgArr.map((image, index) => {
+          return (
+            <div onClick={this.handleImageClick.bind(this, index)} className='image four wide column'> <img alt='game' style={{ maxWidth: '100%' }} src={image} /></div>
+          )
+        })}
+
       </div>
+
     )
   }
 }

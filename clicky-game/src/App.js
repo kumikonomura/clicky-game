@@ -23,15 +23,28 @@ class App extends React.Component {
   handleShuffleCards = _ => {
     let imgArr = this.state.imgArr
     shuffle(imgArr)
-    this.setState({imgArr })
+    this.setState({ imgArr })
+  }
+
+  handleClick(selectedCard){
+    console.log(selectedCard)
+    //function to check if card has been selected already
+    //if not 
+      //logic for marking card as selected
+    //if so
+      //logic for losing 
+    //call handleShuffleCards
   }
 
   render () {
 
     return (
+      <>
       <Characters 
       imgArr={this.state.imgArr}
+      clickHandler={this.handleClick}
       />
+      </>
     )
   }
 }
