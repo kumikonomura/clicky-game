@@ -1,5 +1,6 @@
 import React from 'react'
 import Characters from './components/Characters/Characters'
+// npm package called shuffle-array
 import shuffle from 'shuffle-array'
 
 class App extends React.Component {
@@ -17,18 +18,21 @@ class App extends React.Component {
     'https://imgix.bustle.com/uploads/image/2017/12/20/e0364c80-0232-49bf-a37d-12d1e4a67940-screen-shot-2017-12-19-at-94303-pm.png?w=960&h=540&fit=crop&crop=faces&auto=format&q=70',
     'https://vignette.wikia.nocookie.net/theoffice/images/d/d9/Blondryan.jpg/revision/latest/scale-to-width-down/247?cb=20181107223529',
     'https://cimg.tvgcdn.net/i/2007/05/10/286866da-4399-44a0-b806-ed9cd5f702c8/d4144e3ba8e7884bdefdf59152329e0f/A53B14BC-294C-4F7B-965C-A5A98F337639.jpg',
-    ]
+    ],
+    selected: null
   }
-
+  // This function will shuffle the cards, WORKING!!
   handleShuffleCards = _ => {
     let imgArr = this.state.imgArr
     shuffle(imgArr)
     this.setState({ imgArr })
   }
-
+  // This function will handle the different conditions
+  // selectedCard is the index number of the card
   handleClick(selectedCard){
     console.log(selectedCard)
-    //function to check if card has been selected already
+    // 
+    //function to check if card has been selected already  
     //if not 
       //logic for marking card as selected
     //if so
