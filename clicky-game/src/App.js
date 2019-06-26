@@ -2,6 +2,7 @@ import React from 'react'
 import Characters from './components/Characters/Characters'
 // npm package called shuffle-array
 import shuffle from 'shuffle-array'
+import NavBar from './components/NavBar/NavBar'
 
 class App extends React.Component {
   state = {
@@ -19,7 +20,7 @@ class App extends React.Component {
     'https://vignette.wikia.nocookie.net/theoffice/images/d/d9/Blondryan.jpg/revision/latest/scale-to-width-down/247?cb=20181107223529',
     'https://cimg.tvgcdn.net/i/2007/05/10/286866da-4399-44a0-b806-ed9cd5f702c8/d4144e3ba8e7884bdefdf59152329e0f/A53B14BC-294C-4F7B-965C-A5A98F337639.jpg',
     ],
-    selected: null
+    selected: []
   }
   // This function will shuffle the cards, WORKING!!
   handleShuffleCards = _ => {
@@ -29,9 +30,20 @@ class App extends React.Component {
   }
   // This function will handle the different conditions
   // selectedCard is the index number of the card
-  handleClick(selectedCard){
-    console.log(selectedCard)
-    // 
+  handleClick = selectedCard => {
+    // console.log(this.state.imgArr[selectedCard])
+    const imgUrl = this.state.imgArr[selectedCard]
+    console.log(this.state.selected)
+    if (this.state.selected.indexOf(imgUrl) === -1) {
+      this.setState({ selected: [...this.state.selected, imgUrl] })
+      // imgArr: shuffle your new images array
+      this.handleShuffleCards(selectedCard)
+    } else {
+      // reset state
+      this.setState({ selected: [] })
+      // notify user of loss
+      window.alert('you lose')
+    }
     //function to check if card has been selected already  
     //if not 
       //logic for marking card as selected
@@ -44,6 +56,7 @@ class App extends React.Component {
 
     return (
       <>
+      <NavBar />
       <Characters 
       imgArr={this.state.imgArr}
       clickHandler={this.handleClick}
