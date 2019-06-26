@@ -20,7 +20,8 @@ class App extends React.Component {
     'https://vignette.wikia.nocookie.net/theoffice/images/d/d9/Blondryan.jpg/revision/latest/scale-to-width-down/247?cb=20181107223529',
     'https://cimg.tvgcdn.net/i/2007/05/10/286866da-4399-44a0-b806-ed9cd5f702c8/d4144e3ba8e7884bdefdf59152329e0f/A53B14BC-294C-4F7B-965C-A5A98F337639.jpg',
     ],
-    selected: []
+    selected: [],
+    score: 0
   }
   // This function will shuffle the cards, WORKING!!
   handleShuffleCards = _ => {
@@ -31,16 +32,22 @@ class App extends React.Component {
   // This function will handle the different conditions
   // selectedCard is the index number of the card
   handleClick = selectedCard => {
-    // console.log(this.state.imgArr[selectedCard])
+    // imgUrl variable equal 
     const imgUrl = this.state.imgArr[selectedCard]
     console.log(this.state.selected)
     if (this.state.selected.indexOf(imgUrl) === -1) {
-      this.setState({ selected: [...this.state.selected, imgUrl] })
+      this.setState({ 
+        selected: [...this.state.selected, imgUrl],
+        score: this.state.score + 1
+      })
       // imgArr: shuffle your new images array
       this.handleShuffleCards(selectedCard)
     } else {
       // reset state
-      this.setState({ selected: [] })
+      this.setState({ 
+        selected: [],
+        score: 0
+      })
       // notify user of loss
       window.alert('you lose')
     }
@@ -53,10 +60,11 @@ class App extends React.Component {
   }
 
   render () {
-
     return (
       <>
-      <NavBar />
+      <NavBar 
+      score={this.state.score}
+      />
       <Characters 
       imgArr={this.state.imgArr}
       clickHandler={this.handleClick}
