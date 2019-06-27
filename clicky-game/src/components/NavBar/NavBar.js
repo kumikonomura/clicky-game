@@ -7,12 +7,12 @@ import Grid from '@material-ui/core/Grid'
 const NavBar = props => {
   return (
     <div>
-      <AppBar position='static' color='default'>
+      <AppBar position='static' style={{ backgroundColor: '#101010' }}>
         <Toolbar>
-          <Grid container spacing={3}>
+          <Grid container spacing={3} style={{ textAlign: 'center' }}>
             <Grid item xs={12}>
               <Typography variant='h6' color='inherit'>
-                Clicky Game
+                The Office Clicky Game
               </Typography>
             </Grid>
             <Grid item xs={12}>

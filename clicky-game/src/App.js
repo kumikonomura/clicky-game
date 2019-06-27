@@ -3,6 +3,7 @@ import Characters from './components/Characters/Characters'
 // npm package called shuffle-array
 import shuffle from 'shuffle-array'
 import NavBar from './components/NavBar/NavBar'
+import './App.css'
 
 class App extends React.Component {
   state = {
