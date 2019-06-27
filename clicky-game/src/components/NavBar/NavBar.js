@@ -19,6 +19,9 @@ const NavBar = props => {
               <Typography variant='h6' color='inherit'>
                 Score: {props.score}
               </Typography>
+              <Typography variant='h6' color='inherit'>
+                Top Score: {props.topScore}
+              </Typography>
             </Grid>
           </Grid>
         </Toolbar>

@@ -21,7 +21,8 @@ class App extends React.Component {
     'https://cimg.tvgcdn.net/i/2007/05/10/286866da-4399-44a0-b806-ed9cd5f702c8/d4144e3ba8e7884bdefdf59152329e0f/A53B14BC-294C-4F7B-965C-A5A98F337639.jpg',
     ],
     selected: [],
-    score: 0
+    score: 0,
+    topScore: 0
   }
   // This function will shuffle the cards, WORKING!!
   handleShuffleCards = _ => {
@@ -32,17 +33,21 @@ class App extends React.Component {
   // This function will handle the different conditions
   // selectedCard is the index number of the card
   handleClick = selectedCard => {
-    // imgUrl variable equal 
+    // imgUrl variable equals the index of each image in the imgArr
     const imgUrl = this.state.imgArr[selectedCard]
     console.log(this.state.selected)
-    if (this.state.selected.indexOf(imgUrl) === -1) {
+
+    // this condition checks if the imgUrl can be found in the selected array
+    if (this.state.selected.indexOf(imgUrl) < 0) {
+      // this block of code runs when imgUrl was not found in the selected array
       this.setState({ 
         selected: [...this.state.selected, imgUrl],
-        score: this.state.score + 1
+        score: this.state.score + 1,
+        topScore: Math.max(this.state.score + 1, this.state.topScore)      
       })
       // imgArr: shuffle your new images array
       this.handleShuffleCards(selectedCard)
-    } else {
+    } else { // if imgUrl WAS found in the selected array
       // reset state
       this.setState({ 
         selected: [],
@@ -64,6 +69,7 @@ class App extends React.Component {
       <>
       <NavBar 
       score={this.state.score}
+      topScore={this.state.topScore}
       />
       <Characters 
       imgArr={this.state.imgArr}
