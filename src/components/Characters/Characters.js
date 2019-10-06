@@ -1,4 +1,5 @@
 import React from 'react'
+import './Characters.css'
 
 const Characters = props => {
   return (
@@ -10,7 +11,7 @@ const Characters = props => {
           <div
             onClick={() => props.clickHandler(index)}
             className='ui four wide column'>
-            <img alt='game' style={{ maxWidth: '100%', maxHeight: '100%' }} src={image} />
+            <img id='office_pictures' alt='game' style={{ maxWidth: '100%', maxHeight: '100%' }} src={image} />
           </div>
         )
       })}
