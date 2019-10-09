@@ -8,7 +8,7 @@ import "./NavBar.css";
 const NavBar = props => {
   return (
     <div style={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ backgroundColor: "orange" }}>
+      <AppBar position="static" style={{ backgroundColor: "coral" }}>
         <Toolbar>
           <Grid container spacing={3} style={{ textAlign: "center" }}>
             <Grid item xs={4}>
