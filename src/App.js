@@ -54,7 +54,7 @@ class App extends React.Component {
         score: 0
       })
       // notify user of loss
-      window.alert('you lose')
+      window.alert('You guessed incorrectly. Try again!')
     }
     //function to check if card has been selected already  
     //if not 

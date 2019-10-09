@@ -4,7 +4,7 @@ import './Characters.css'
 const Characters = props => {
   return (
 
-    <div className='ui grid container' style={{ margin: '20px' }}>
+    <div className='ui grid container' style={{ margin: '50px' }}>
 
       {props.imgArr.map((image, index) => {
         return (
